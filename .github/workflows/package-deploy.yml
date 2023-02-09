@@ -1,0 +1,9 @@
+name: Deploy TypeScript package to GitHub Repository
+on:
+  push:
+    tags:
+     - '*'
+jobs:
+  ci-cd:
+    name: CI/CD
+    uses: felipemenezesdm/general-deploy-actions/.github/workflows/github-typescript-package.yml@v1
