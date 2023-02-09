@@ -1,7 +1,7 @@
 {
-  "name": "@felipemenezesdm/general-maven-library-template",
+  "name": "@felipemenezesdm/typescript-secret-manager-suite",
   "version": "1.0.0",
-  "description": "Modelo padrão para criação de bibliotecas TypeScript.",
+  "description": "Suite para recuperação de valores a partir do Secret Manager na AWS ou GCP.",
   "main": "./src/app.js",
   "scripts": {
     "dev": "ts-node-dev -r dotenv/config --respawn --transpile-only src/app.ts"
@@ -15,13 +15,17 @@
     "javascript",
     "route",
     "template",
-    "model"
+    "model",
+    "aws",
+    "gcp",
+    "secrets",
+    "secret manager"
   ],
   "author": "Felipe Menezes",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/FelipeMenezesDM/general-maven-library-template.git"
+    "url": "https://github.com/FelipeMenezesDM/typescript-secret-manager-suite.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
@@ -32,5 +36,7 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.267.0",
+    "@google-cloud/secret-manager": "^4.2.0"
   }
 }
