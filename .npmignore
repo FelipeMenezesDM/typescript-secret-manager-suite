@@ -15,6 +15,5 @@ yarn-error.log
 /.idea
 /.vscode
 /reports
-/dist
 
 auth-gcloud.json
