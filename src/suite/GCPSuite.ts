@@ -12,3 +12,5 @@ export class GCPSuite extends Suite {
         return (response[0].payload?.data || '').toString();
     }
 }
+
+export default new GCPSuite();

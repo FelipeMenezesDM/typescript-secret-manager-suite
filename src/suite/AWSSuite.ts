@@ -18,3 +18,5 @@ export class AWSSuite extends Suite {
         return <string> response.SecretString;
     }
 }
+
+export default new AWSSuite();
