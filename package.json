@@ -4,6 +4,7 @@
   "description": "Suite para recuperação de valores a partir do Secret Manager na AWS ou GCP.",
   "main": "./dist/app.js",
   "scripts": {
+    "build": "tsc --declaration",
     "dev": "ts-node-dev -r dotenv/config --respawn --transpile-only src/app.ts"
   },
   "keywords": [

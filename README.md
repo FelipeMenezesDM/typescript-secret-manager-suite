@@ -35,6 +35,11 @@ Execute o comando para se autenticar no _registry_ e informe as suas credenciais
 ```
 npm login --scope=@felipemenezesdm --auth-type=legacy --registry=https://npm.pkg.github.com
 ```
+Execute o comando para fazer o _build_ do projeto:
+```
+npm run build
+```
+
 Execute o comando para publicar a nova versão do pacote:
 ```
 npm publish
