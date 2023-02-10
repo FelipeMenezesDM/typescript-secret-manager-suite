@@ -1,12 +1,11 @@
 import {GetSecretValueCommand, SecretsManagerClient} from '@aws-sdk/client-secrets-manager';
-import GeneralProps from '../props/GeneralProps';
 import {Suite} from './Suite';
 
 export class AWSSuite extends Suite {
     public async getSecretData(secretName: string) {
         const client = new SecretsManagerClient({
-            region: GeneralProps.region,
-            endpoint: GeneralProps.endPoint,
+            region: process.env.AWS_DEFAULT_REGION || 'us-east-1',
+            endpoint: process.env.AWS_ENDPOINT || '',
         });
 
         const command = new GetSecretValueCommand({
