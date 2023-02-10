@@ -2,7 +2,7 @@
   "name": "@felipemenezesdm/typescript-secret-manager-suite",
   "version": "1.0.0",
   "description": "Suite para recuperação de valores a partir do Secret Manager na AWS ou GCP.",
-  "main": "./src/app.js",
+  "main": "./src/app.ts",
   "scripts": {
     "dev": "ts-node-dev -r dotenv/config --respawn --transpile-only src/app.ts"
   },
