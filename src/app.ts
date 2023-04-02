@@ -6,13 +6,10 @@ const suite = () => {
     switch((process.env.APP_SUITE || '').toUpperCase()) {
         case 'AWS' :
             return AWSSuite;
-            break;
         case 'GCP' :
             return GCPSuite;
-            break;
         default :
             return Suite;
-            break;
     }
 };
 

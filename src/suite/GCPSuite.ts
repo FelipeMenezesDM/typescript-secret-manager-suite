@@ -3,12 +3,26 @@ import {Suite} from './Suite';
 
 export class GCPSuite extends Suite {
     public async getSecretData(secretName: string) {
-        const client = new SecretManagerServiceClient();
-        const response = await client.accessSecretVersion({
-            name: `projects/${process.env.GCP_PROJECT_ID || ''}/secrets/${secretName}/versions/latest`,
-        });
+        if(secretName == '') {
+            return secretName;
+        }
 
-        return (response[0].payload?.data || '').toString();
+        const cached = await this.getCache(secretName);
+
+        if(cached) {
+            return cached.toString();
+        }
+
+        const client = new SecretManagerServiceClient();
+        const secretFullName = `projects/${process.env.GCP_PROJECT_ID || ''}/secrets/${secretName}/versions/latest`;
+        const secret = await client.accessSecretVersion({name: secretFullName});
+        const response = (secret[0].payload?.data || '').toString();
+
+        if(response != '') {
+            return (await this.putCache(secretName, response) || '').toString();
+        }
+
+        return response;
     }
 }
 
