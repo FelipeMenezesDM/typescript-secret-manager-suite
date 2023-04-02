@@ -1,6 +1,6 @@
-import AWSSuite from './suite/AWSSuite';
-import GCPSuite from './suite/GCPSuite';
-import Suite from './suite/Suite';
+import AWSSuite from './Suite/AWSSuite';
+import GCPSuite from './Suite/GCPSuite';
+import Suite from './Suite/Suite';
 
 const suite = () => {
     switch((process.env.APP_SUITE || '').toUpperCase()) {

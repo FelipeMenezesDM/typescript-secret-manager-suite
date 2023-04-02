@@ -15,14 +15,14 @@ export class GCPSuite extends Suite {
 
         const client = new SecretManagerServiceClient();
         const secretFullName = `projects/${process.env.GCP_PROJECT_ID || ''}/secrets/${secretName}/versions/latest`;
-        const secret = await client.accessSecretVersion({name: secretFullName});
-        const response = (secret[0].payload?.data || '').toString();
+        const response = await client.accessSecretVersion({name: secretFullName});
+        const secret = (response[0].payload?.data || '').toString();
 
-        if(response != '') {
-            return (await this.putCache(secretName, response) || '').toString();
+        if(secret && secret != '') {
+            return (await this.putCache(secretName, secret) || '').toString();
         }
 
-        return response;
+        return secret;
     }
 }
 
